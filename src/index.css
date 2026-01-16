@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern dark theme with vibrant accents */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Vibrant violet primary */
+    --primary: 263 70% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Deep purple secondary */
+    --secondary: 280 45% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    /* Muted tones */
+    --muted: 240 8% 12%;
+    --muted-foreground: 240 5% 55%;
+
+    /* Fuchsia accent */
+    --accent: 292 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 15%;
+    --input: 240 8% 12%;
+    --ring: 263 70% 58%;
+
+    --radius: 0.875rem;
+
+    /* Custom wellness colors */
+    --sage: 150 35% 50%;
+    --sage-light: 150 30% 20%;
+    --terracotta: 20 55% 55%;
+    --terracotta-light: 20 40% 18%;
+    --lavender: 270 45% 65%;
+    --lavender-light: 270 35% 20%;
+    --sunshine: 45 85% 60%;
+    --sunshine-light: 45 60% 18%;
+    --ocean: 200 70% 55%;
+    --ocean-light: 200 50% 18%;
+
+    /* Mood colors - vibrant */
+    --mood-great: 145 65% 50%;
+    --mood-good: 165 55% 48%;
+    --mood-okay: 45 70% 55%;
+    --mood-low: 30 60% 50%;
+    --mood-bad: 0 65% 55%;
+
+    /* Modern gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 58% / 0.1) 0%, hsl(292 60% 55% / 0.1) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(240 10% 8%) 0%, hsl(240 10% 5%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 58%) 0%, hsl(292 60% 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(292 60% 55%) 0%, hsl(320 70% 60%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(263 70% 58% / 0.15) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.4);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.5);
+    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px -8px hsl(263 70% 58% / 0.4);
+    --shadow-glow-accent: 0 0 40px -8px hsl(292 60% 55% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 263 70% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 280 45% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 8% 12%;
+    --sidebar-ring: 263 70% 58%;
+  }
+
+  .dark {
+    /* Already dark by default */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-glow {
+    background: var(--gradient-glow);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-floating {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+
+  .glass {
+    @apply backdrop-blur-2xl bg-card/60 border border-border/50;
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-3xl bg-card/80 border border-border/60;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .glow-line {
+    @apply relative overflow-hidden;
+  }
+
+  .glow-line::after {
+    content: '';
+    @apply absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent;
+  }
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+/* iOS-style safe areas */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
