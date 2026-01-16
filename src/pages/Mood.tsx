@@ -8,7 +8,6 @@ const moods = [
   { emoji: "😄", label: "Super", color: "bg-mood-great", value: 5 },
   { emoji: "🙂", label: "Bien", color: "bg-mood-good", value: 4 },
   { emoji: "😐", label: "Neutre", color: "bg-mood-okay", value: 3 },
-  { emoji: "😔", label: "Bof", color: "bg-mood-low", value: 2 },
   { emoji: "😢", label: "Difficile", color: "bg-mood-bad", value: 1 },
 ];
 
@@ -68,8 +67,8 @@ const Mood = () => {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6 md:space-y-8">
-            {/* Émojis en grid pour une disposition parfaite */}
-            <div className="grid grid-cols-5 gap-1 sm:gap-2 md:gap-3 lg:gap-4">
+            {/* Émojis en grid - 4 colonnes maintenant */}
+            <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4">
               {moods.map((mood) => (
                 <button
                   key={mood.value}
@@ -84,8 +83,8 @@ const Mood = () => {
                     )
                   )}
                 >
-                  {/* Émoji avec taille responsive */}
-                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-1 sm:mb-2">
+                  {/* Émoji avec taille réduite */}
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-1 sm:mb-2">
                     {mood.emoji}
                   </span>
                   {/* Label avec taille responsive */}
