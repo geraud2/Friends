@@ -2,17 +2,42 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compagnon</title>
-    
-    <!-- Ajoutez base href si nécessaire -->
-    <base href="/">
-    
-    <!-- CSS devrait être injecté automatiquement par Vite -->
-    <!-- Ne mettez pas de lien CSS manuel ici -->
+    <!-- Ajoutez ce script pour éviter le flash blanc -->
+    <script>
+      // Appliquer le thème IMMÉDIATEMENT au chargement
+      (function() {
+        try {
+          const saved = localStorage.getItem('theme');
+          let theme = saved || 'system';
+          
+          if (theme === 'system') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            theme = prefersDark ? 'dark' : 'light';
+          }
+          
+          // Appliquer la classe au html
+          document.documentElement.classList.add(theme);
+          
+          // Forcer les styles immédiatement
+          document.body.style.backgroundColor = theme === 'light' ? '#ffffff' : '#0a0a0a';
+          document.body.style.color = theme === 'light' ? '#000000' : '#ffffff';
+          document.body.className = theme;
+          
+          console.log('Thème appliqué:', theme);
+        } catch (e) {
+          console.error('Erreur d\'application du thème:', e);
+          document.documentElement.classList.add('dark');
+          document.body.style.backgroundColor = '#0a0a0a';
+          document.body.style.color = '#ffffff';
+        }
+      })();
+    </script>
+    <!-- Lien vers votre CSS -->
+    <link rel="stylesheet" href="/src/index.css">
   </head>
-  <body>
+  <body class="min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
