@@ -76,6 +76,11 @@ const Chat = () => {
       <Helmet>
         <title>Chat IA - Votre compagnon bienveillant</title>
         <meta name="description" content="Discutez avec votre compagnon IA personnalisé" />
+        {/*Open Graph  Tags */}
+        <meta property="og:title" content="Chat IA - Votre compagnon bienveillant" />
+        <meta property="og:description" content="Discutez avec votre compagnon IA personnalisé" />
+        <meta property="og:image" content="https://www.challenges.fr/entreprise/green-economie/ia-generer-des-images-de-chat-n-est-pas-neutre-du-tout-pour-le-climat_880339" />
+        <meta property="og:type" content="https://friends-orcin-eta.vercel.app/" />
       </Helmet>
       <AppLayout>
         <div className="max-w-3xl mx-auto h-[calc(100vh-8rem)] lg:h-[calc(100vh-6rem)] flex flex-col">
